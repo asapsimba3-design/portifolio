@@ -1,0 +1,91 @@
+{
+  "artist": {
+    "name": "ASAMALA MTIMA",
+    "bio": "Asamala Mtima is a visual artist working across painting and mixed media. His practice explores the human experience, cultural identity and the landscapes that shape us.",
+    "location": "BASED IN LILONGWE, MALAWI",
+    "workingScope": "WORKING GLOBALLY"
+  },
+  "hero": {
+    "eyebrow": "PAINTINGS / MIXED MEDIA / VISUAL STORIES",
+    "title": "ART THAT<br>CAPTURES<br><em>HUMANITY.</em>"
+  },
+  "practice": {
+    "description": "I create images that explore memory, identity, emotion, and the spaces between what we see and what we feel."
+  },
+  "contact": {
+    "email": "studio@example.com",
+    "instagram": "#",
+    "twitter": "#",
+    "youtube": "#"
+  },
+  "works": [
+    {
+      "id": 1,
+      "title": "Roots & Resilience",
+      "year": "2025",
+      "medium": "Oil on canvas",
+      "dimensions": "120 × 180 cm",
+      "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=85",
+      "isLarge": true
+    },
+    {
+      "id": 2,
+      "title": "The Journey",
+      "year": "2025",
+      "medium": "Acrylic on canvas",
+      "dimensions": "100 × 150 cm",
+      "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=1000&q=85",
+      "isLarge": false
+    },
+    {
+      "id": 3,
+      "title": "Stillness",
+      "year": "2025",
+      "medium": "Mixed media",
+      "dimensions": "90 × 120 cm",
+      "image": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1000&q=85",
+      "isLarge": false
+    },
+    {
+      "id": 4,
+      "title": "The Healer",
+      "year": "2024",
+      "medium": "Oil on canvas",
+      "dimensions": "80 × 100 cm",
+      "image": "https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&w=1000&q=85",
+      "isLarge": false
+    },
+    {
+      "id": 5,
+      "title": "Daily Routines",
+      "year": "2025",
+      "medium": "Acrylic on canvas",
+      "dimensions": "70 × 100 cm",
+      "image": "https://images.unsplash.com/photo-1578926287939-58a0c5f5d9d7?auto=format&fit=crop&w=1000&q=85",
+      "isLarge": false
+    }
+  ],
+  "exhibitions": [
+    {
+      "id": 1,
+      "year": "2026",
+      "title": "Bound by Place",
+      "type": "Group Exhibition",
+      "location": "Lilongwe, Malawi"
+    },
+    {
+      "id": 2,
+      "year": "2025",
+      "title": "Faces & Landscapes",
+      "type": "Solo Exhibition",
+      "location": "Blantyre, Malawi"
+    },
+    {
+      "id": 3,
+      "year": "2024",
+      "title": "The Human Condition",
+      "type": "Group Exhibition",
+      "location": "Johannesburg, South Africa"
+    }
+  ]
+}

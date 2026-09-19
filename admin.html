@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Asamala Mtima</title>
+  <link rel="stylesheet" href="admin-style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-box">
+      <h2>Admin Login</h2>
+      <form id="login-form">
+        <label>Email:<input type="email" id="login-email" required></label>
+        <label>Password:<input type="password" id="login-password" required></label>
+        <button type="submit" class="btn-save">Login</button>
+        <p id="login-error" class="error-message"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-container" id="admin-panel" style="display:none;">
+    <header class="admin-header">
+      <h1>Portfolio Admin Panel</h1>
+      <div>
+        <span id="user-email" style="margin-right:15px;font-size:14px;"></span>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+        <a href="index.html" class="btn-view-site">View Site</a>
+      </div>
+    </header>
+
+    <nav class="admin-nav">
+      <button class="tab-btn active" data-tab="artist">Artist Info</button>
+      <button class="tab-btn" data-tab="works">Works</button>
+      <button class="tab-btn" data-tab="exhibitions">Exhibitions</button>
+      <button class="tab-btn" data-tab="contact">Contact</button>
+    </nav>
+
+    <main class="admin-main">
+      <section id="artist-tab" class="tab-content active">
+        <h2>Artist Information</h2>
+        <form id="artist-form">
+          <label>Artist Name:<input type="text" id="artist-name" required></label>
+          <label>Bio:<textarea id="artist-bio" rows="4" required></textarea></label>
+          <label>Location:<input type="text" id="artist-location" required></label>
+          <label>Working Scope:<input type="text" id="artist-scope" required></label>
+          <label>Practice Description:<textarea id="practice-desc" rows="3" required></textarea></label>
+          <button type="submit" class="btn-save">Save Changes</button>
+        </form>
+      </section>
+
+      <section id="works-tab" class="tab-content">
+        <h2>Manage Works</h2>
+        <button class="btn-add" id="add-work">+ Add New Work</button>
+        <div id="works-list"></div>
+      </section>
+
+      <section id="exhibitions-tab" class="tab-content">
+        <h2>Manage Exhibitions</h2>
+        <button class="btn-add" id="add-exhibition">+ Add New Exhibition</button>
+        <div id="exhibitions-list"></div>
+      </section>
+
+      <section id="contact-tab" class="tab-content">
+        <h2>Contact Information</h2>
+        <form id="contact-form">
+          <label>Email:<input type="email" id="contact-email" required></label>
+          <label>WhatsApp Number (optional, with country code):<input type="text" id="contact-whatsapp" placeholder="e.g., 265999123456"></label>
+          <small style="display:block;margin:-10px 0 15px 0;color:#77736b;font-size:12px;">Enter the full number with country code, no spaces or symbols (e.g., 265999123456 for Malawi). Leave empty to hide the WhatsApp button.</small>
+          <label>Instagram URL (optional):<input type="text" id="contact-instagram" placeholder="https://instagram.com/username"></label>
+          <label>Twitter URL (optional):<input type="text" id="contact-twitter" placeholder="https://twitter.com/username"></label>
+          <label>YouTube URL (optional):<input type="text" id="contact-youtube" placeholder="https://youtube.com/channel/..."></label>
+          <button type="submit" class="btn-save">Save Changes</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>

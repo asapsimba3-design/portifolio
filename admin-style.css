@@ -1,0 +1,48 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',Arial,sans-serif;background:#f3f0e9;color:#171614;line-height:1.6}
+.admin-container{max-width:1200px;margin:0 auto;padding:20px}
+.admin-header{display:flex;justify-content:space-between;align-items:center;padding:20px;background:#171614;color:#fff;margin-bottom:30px}
+.admin-header h1{font-size:24px;font-weight:600}
+.btn-view-site{background:#fff;color:#171614;padding:10px 20px;text-decoration:none;font-size:14px;border-radius:4px;transition:.3s}
+.btn-view-site:hover{background:#e9e4db}
+.admin-nav{display:flex;gap:10px;margin-bottom:30px;border-bottom:2px solid #d7d2c8}
+.tab-btn{background:none;border:none;padding:12px 24px;font-size:14px;cursor:pointer;position:relative;transition:.3s;color:#77736b}
+.tab-btn:hover{color:#171614}
+.tab-btn.active{color:#171614;font-weight:600}
+.tab-btn.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:#171614}
+.admin-main{background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+h2{font-size:20px;margin-bottom:20px;font-weight:600}
+form{display:flex;flex-direction:column;gap:16px;max-width:600px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
+input,textarea{padding:10px;border:1px solid #d7d2c8;border-radius:4px;font-size:14px;font-family:inherit}
+input:focus,textarea:focus{outline:none;border-color:#171614}
+.btn-save,.btn-add{background:#171614;color:#fff;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-size:14px;font-weight:500;transition:.3s}
+.btn-save:hover,.btn-add:hover{background:#2a2824}
+.btn-add{margin-bottom:20px}
+.work-item,.exhibition-item{background:#f9f8f6;padding:20px;margin-bottom:16px;border-radius:6px;border-left:4px solid #171614}
+.item-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}
+.item-title{font-size:16px;font-weight:600}
+.item-actions{display:flex;gap:8px}
+.btn-edit,.btn-delete{padding:6px 12px;border:none;border-radius:4px;cursor:pointer;font-size:12px;transition:.3s}
+.btn-edit{background:#e9e4db;color:#171614}
+.btn-edit:hover{background:#d7d2c8}
+.btn-delete{background:#d32f2f;color:#fff}
+.btn-delete:hover{background:#b71c1c}
+.item-details{font-size:13px;color:#5f5b54;line-height:1.8}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+.modal.active{display:flex}
+.modal-content{background:#fff;padding:30px;border-radius:8px;max-width:500px;width:90%;max-height:90vh;overflow-y:auto}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-header h3{font-size:18px}
+.btn-close{background:none;border:none;font-size:24px;cursor:pointer;color:#77736b}
+.checkbox-label{flex-direction:row;align-items:center;gap:10px}
+.checkbox-label input{width:auto}
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#171614 0%,#2a2824 100%);display:flex;align-items:center;justify-content:center}
+.login-box{background:#fff;padding:40px;border-radius:8px;width:90%;max-width:400px;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.login-box h2{margin-bottom:24px;text-align:center}
+.error-message{color:#d32f2f;font-size:13px;margin-top:10px;text-align:center}
+.btn-logout{background:#d32f2f;color:#fff;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;font-size:14px;margin-right:10px;transition:.3s}
+.btn-logout:hover{background:#b71c1c}
+.admin-header>div{display:flex;align-items:center}

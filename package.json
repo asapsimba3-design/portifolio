@@ -1,0 +1,13 @@
+{
+  "name": "asamala-mtima-portfolio",
+  "version": "1.0.0",
+  "description": "Artist portfolio website with admin panel powered by Supabase",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": ["portfolio", "artist", "supabase", "static-site"],
+  "author": "Asamala Mtima",
+  "license": "UNLICENSED",
+  "private": true
+}
