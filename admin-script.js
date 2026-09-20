@@ -44,9 +44,18 @@ function showLoginScreen() {
 }
 
 function showAdminPanel() {
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('admin-panel').style.display = 'block';
+  console.log('showAdminPanel called');
+  const loginScreen = document.getElementById('login-screen');
+  const adminPanel = document.getElementById('admin-panel');
+  
+  console.log('Login screen element:', loginScreen);
+  console.log('Admin panel element:', adminPanel);
+  
+  loginScreen.style.display = 'none';
+  adminPanel.style.display = 'block';
   document.getElementById('user-email').textContent = currentUser.email;
+  
+  console.log('Display changed - login hidden, admin shown');
 }
 
 // Initialize everything after DOM and Supabase are ready
@@ -65,29 +74,39 @@ function setupEventListeners() {
   // Login form
   document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log('Login form submitted');
+    
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+    console.log('Attempting login with email:', email);
+    
     const supabase = getSupabase();
     const errorEl = document.getElementById('login-error');
     
     if (!supabase) {
+      console.error('Supabase not initialized');
       errorEl.textContent = 'Supabase not initialized. Please refresh the page.';
       return;
     }
     
     // Clear previous errors
-    errorEl.textContent = '';
+    errorEl.textContent = 'Logging in...';
+    errorEl.style.color = '#4a9eff';
     
     try {
+      console.log('Calling supabase.auth.signInWithPassword...');
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password
       });
       
+      console.log('Login response:', { data, error });
+      
       if (error) {
         console.error('Login error:', error);
         
         // Provide helpful error messages
+        errorEl.style.color = '#e74c3c';
         if (error.message.includes('Invalid login credentials')) {
           errorEl.textContent = 'Invalid email or password. Please check your credentials.';
         } else if (error.message.includes('Email not confirmed')) {
@@ -98,8 +117,11 @@ function setupEventListeners() {
           errorEl.textContent = error.message || 'Login failed. Please try again.';
         }
       } else {
+        console.log('Login successful!', data.user);
         currentUser = data.user;
+        console.log('Calling showAdminPanel...');
         showAdminPanel();
+        console.log('Admin panel should be visible now');
         loadData();
       }
     } catch (err) {
