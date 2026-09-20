@@ -63,13 +63,29 @@ function populateContent(data) {
   
   // Update contact
   if (data.contact) {
-    document.querySelector('.contact-content a').href = `mailto:${data.contact.email}`;
+    // Update email links
+    const emailLinks = document.querySelectorAll('#contact-email');
+    emailLinks.forEach(link => {
+      link.href = `mailto:${data.contact.email}`;
+      link.textContent = data.contact.email;
+    });
     
-    // Update INQUIRE button with WhatsApp
+    // Update WhatsApp links and display
+    const whatsappLinks = document.querySelectorAll('#contact-whatsapp');
     const contactLink = document.getElementById('contact-link');
-    if (contactLink && data.contact.whatsapp) {
+    
+    if (data.contact.whatsapp) {
       const cleanNumber = data.contact.whatsapp.replace(/[^0-9]/g, '');
-      contactLink.href = `https://wa.me/${cleanNumber}`;
+      const whatsappUrl = `https://wa.me/${cleanNumber}`;
+      
+      whatsappLinks.forEach(link => {
+        link.href = whatsappUrl;
+        link.textContent = data.contact.whatsapp;
+      });
+      
+      if (contactLink) {
+        contactLink.href = whatsappUrl;
+      }
     }
     
     // Update WhatsApp button
