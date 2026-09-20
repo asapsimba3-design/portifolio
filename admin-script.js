@@ -79,8 +79,12 @@ async function initializeAdmin() {
 
 function setupEventListeners() {
   // Login form
-  document.getElementById('login-form').addEventListener('submit', async (e) => {
+  const loginForm = document.getElementById('login-form');
+  console.log('🔵 Login form element:', loginForm);
+  
+  loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log('🔵🔵🔵 Login form submitted!');
     console.log('Login form submitted');
     
     const email = document.getElementById('login-email').value;
