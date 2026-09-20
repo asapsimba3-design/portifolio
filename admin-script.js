@@ -1,4 +1,5 @@
 // Check authentication status
+console.log('🔵 admin-script.js loaded successfully');
 let currentUser = null;
 
 // Get supabase client
@@ -60,13 +61,19 @@ function showAdminPanel() {
 
 // Initialize everything after DOM and Supabase are ready
 async function initializeAdmin() {
+  console.log('🔵 initializeAdmin called');
   // Wait for Supabase
+  console.log('🔵 Waiting for Supabase...');
   await waitForSupabase();
+  console.log('🔵 Supabase ready!');
   
   // Setup event listeners
+  console.log('🔵 Setting up event listeners...');
   setupEventListeners();
+  console.log('🔵 Event listeners set up');
   
   // Check authentication
+  console.log('🔵 Checking authentication...');
   checkAuth();
 }
 
@@ -517,9 +524,12 @@ async function deleteExhibition(id) {
 }
 
 // Initialize when page loads
+console.log('🔵 Initializing admin panel...');
 if (document.readyState === 'loading') {
+  console.log('🔵 DOM still loading, adding event listener');
   document.addEventListener('DOMContentLoaded', initializeAdmin);
 } else {
   // DOM already loaded
+  console.log('🔵 DOM already loaded, initializing now');
   initializeAdmin();
 }
