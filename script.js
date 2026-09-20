@@ -138,7 +138,7 @@ function populateContent(data) {
 
 const loader=document.querySelector('.loader');
 const loaderImg=new Image();
-loaderImg.src='images/Asap-logo.png';
+loaderImg.src='images/asap-logo.png';
 window.addEventListener('load',()=>setTimeout(()=>loader.classList.add('hide'),450));
 
 const menu=document.querySelector('.mobile-menu');
