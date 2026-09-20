@@ -64,6 +64,10 @@ function populateContent(data) {
   // Update contact
   if (data.contact) {
     document.querySelector('.contact-content a').href = `mailto:${data.contact.email}`;
+    const contactLink = document.getElementById('contact-link');
+    if (contactLink) {
+      contactLink.href = `mailto:${data.contact.email}`;
+    }
     
     // Update WhatsApp button
     const whatsappBtn = document.getElementById('whatsapp-btn');
