@@ -4,8 +4,7 @@
   "description": "Artist portfolio website with admin panel powered by Supabase",
   "scripts": {
     "dev": "python -m http.server 8000",
-    "start": "python -m http.server 8000",
-    "build": "node build-config.js"
+    "start": "python -m http.server 8000"
   },
   "keywords": ["portfolio", "artist", "supabase", "static-site"],
   "author": "Asamala Mtima",
