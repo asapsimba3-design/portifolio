@@ -25,6 +25,14 @@ async function loadAboutData() {
     }
 
     if (contact) {
+      // Update WhatsApp button
+      const whatsappBtn = document.getElementById('whatsapp-btn');
+      if (whatsappBtn && contact.whatsapp) {
+        const cleanNumber = contact.whatsapp.replace(/[^0-9]/g, '');
+        whatsappBtn.href = `https://wa.me/${cleanNumber}`;
+        whatsappBtn.style.display = 'flex';
+      }
+      
       const socials = document.querySelectorAll('.socials');
       socials.forEach(group => {
         group.innerHTML = `
