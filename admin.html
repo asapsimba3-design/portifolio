@@ -12,21 +12,25 @@
     const SUPABASE_URL = 'https://mmkblarmsmfnvaepxzym.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ta2JsYXJtc21mbnZhZXB4enltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk4MDcwMTAsImV4cCI6MjEwNTM4MzAxMH0.DdB16q3lPjKRzu--Ut9pGXbfaZ0AaYGKM9sYX0XbGUQ';
     
-    // Initialize Supabase client immediately
+    // Initialize Supabase client - wait for library to load
     let supabaseClient = null;
-    if (window.supabase) {
-      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      window.supabaseClient = supabaseClient;
-      console.log('✅ Supabase client initialized inline!');
-    } else {
-      window.addEventListener('DOMContentLoaded', () => {
-        if (window.supabase) {
-          supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-          window.supabaseClient = supabaseClient;
-          console.log('✅ Supabase client initialized on DOMContentLoaded!');
-        }
-      });
+    
+    function initSupabase() {
+      console.log('🔵 Attempting to initialize Supabase...');
+      console.log('🔵 window.supabase exists?', !!window.supabase);
+      
+      if (window.supabase) {
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        window.supabaseClient = supabaseClient;
+        console.log('✅ Supabase client initialized!', window.supabaseClient);
+      } else {
+        console.error('🔴 window.supabase not available yet, retrying...');
+        setTimeout(initSupabase, 50);
+      }
     }
+    
+    // Start initialization after a brief delay to ensure CDN script loads
+    setTimeout(initSupabase, 100);
   </script>
 </head>
 <body>
