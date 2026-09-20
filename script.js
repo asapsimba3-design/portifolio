@@ -70,22 +70,11 @@ function populateContent(data) {
       link.textContent = data.contact.email;
     });
     
-    // Update WhatsApp links and display
-    const whatsappLinks = document.querySelectorAll('#contact-whatsapp');
+    // Update WhatsApp button
     const contactLink = document.getElementById('contact-link');
-    
-    if (data.contact.whatsapp) {
+    if (data.contact.whatsapp && contactLink) {
       const cleanNumber = data.contact.whatsapp.replace(/[^0-9]/g, '');
-      const whatsappUrl = `https://wa.me/${cleanNumber}`;
-      
-      whatsappLinks.forEach(link => {
-        link.href = whatsappUrl;
-        link.textContent = data.contact.whatsapp;
-      });
-      
-      if (contactLink) {
-        contactLink.href = whatsappUrl;
-      }
+      contactLink.href = `https://wa.me/${cleanNumber}`;
     }
     
     // Update WhatsApp button
