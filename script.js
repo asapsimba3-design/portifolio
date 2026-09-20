@@ -50,7 +50,6 @@ function populateContent(data) {
   // Update artist name
   const nameParts = data.artist.name.split(' ');
   document.querySelector('.artist-copy h2').innerHTML = `${nameParts[0]}<br>${nameParts[1] || ''}`;
-  document.querySelector('.footer-brand span').textContent = data.artist.name;
   document.querySelector('.copyright').textContent = `© 2026 ${data.artist.name}. All rights reserved.`;
   
   // Update artist bio
