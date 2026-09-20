@@ -15,7 +15,6 @@ async function loadAboutData() {
       document.getElementById('artist-name').innerHTML = `${nameParts[0]}<br>${nameParts[1] || ''}`;
       document.getElementById('artist-bio').textContent = artist.bio;
       document.getElementById('artist-location').innerHTML = `${artist.location}<br>${artist.working_scope}`;
-      document.getElementById('footer-name').textContent = artist.name;
       document.querySelector('.copyright').textContent = `© 2026 ${artist.name}. All rights reserved.`;
       document.title = `About - ${artist.name}`;
     }
