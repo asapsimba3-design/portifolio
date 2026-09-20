@@ -1,0 +1,9 @@
+# Files to exclude from Vercel deployment
+.env
+.env.local
+node_modules
+.git
+.vscode
+*.md
+!README.md
+build-config.js
