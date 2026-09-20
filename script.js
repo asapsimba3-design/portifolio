@@ -163,8 +163,12 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
   link.addEventListener('click',e=>{
-    const target=document.querySelector(link.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'})}
+    const href = link.getAttribute('href');
+    // Only process if it's still a hash link (not mailto or other protocols)
+    if (href.startsWith('#')) {
+      const target=document.querySelector(href);
+      if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'})}
+    }
   })
 });
 
