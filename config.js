@@ -23,9 +23,10 @@ if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL' || SUPABASE_ANON_KEY === 'YOUR_
 // Initialize Supabase client (will be available globally as window.supabaseClient)
 let supabaseClient = null;
 
-// Wait for Supabase library to load
+// Initialize immediately when script loads
 if (typeof window !== 'undefined') {
-  window.addEventListener('DOMContentLoaded', () => {
+  // Check if Supabase library is already loaded
+  const initializeSupabase = () => {
     if (window.supabase && SUPABASE_URL !== 'YOUR_SUPABASE_PROJECT_URL') {
       if (SUPABASE_ANON_KEY.startsWith('eyJ')) {
         supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -37,5 +38,13 @@ if (typeof window !== 'undefined') {
     } else if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL') {
       console.warn('Supabase not configured. Please set up your credentials in config.js');
     }
-  });
+  };
+  
+  // Try to initialize immediately
+  if (window.supabase) {
+    initializeSupabase();
+  } else {
+    // If Supabase library not loaded yet, wait for it
+    window.addEventListener('DOMContentLoaded', initializeSupabase);
+  }
 }
