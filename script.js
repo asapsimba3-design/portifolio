@@ -167,8 +167,22 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 
 // Load data on page load
 window.addEventListener('DOMContentLoaded', () => {
-  // Wait a bit for supabase to initialize
-  setTimeout(() => {
-    loadPortfolioData();
-  }, 100);
+  // Wait for supabase to initialize with retries
+  let retries = 0;
+  const maxRetries = 20;
+  
+  const checkAndLoad = () => {
+    if (window.supabaseClient) {
+      console.log('Supabase ready, loading portfolio data');
+      loadPortfolioData();
+    } else if (retries < maxRetries) {
+      retries++;
+      console.log(`Waiting for Supabase... (attempt ${retries}/${maxRetries})`);
+      setTimeout(checkAndLoad, 100);
+    } else {
+      console.error('Supabase failed to initialize after', maxRetries, 'attempts');
+    }
+  };
+  
+  checkAndLoad();
 });
