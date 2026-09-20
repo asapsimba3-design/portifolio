@@ -64,9 +64,12 @@ function populateContent(data) {
   // Update contact
   if (data.contact) {
     document.querySelector('.contact-content a').href = `mailto:${data.contact.email}`;
+    
+    // Update INQUIRE button with WhatsApp
     const contactLink = document.getElementById('contact-link');
-    if (contactLink) {
-      contactLink.href = `mailto:${data.contact.email}`;
+    if (contactLink && data.contact.whatsapp) {
+      const cleanNumber = data.contact.whatsapp.replace(/[^0-9]/g, '');
+      contactLink.href = `https://wa.me/${cleanNumber}`;
     }
     
     // Update WhatsApp button
