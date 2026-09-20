@@ -3,8 +3,8 @@
 .env.local
 .env.production
 
-# Configuration with secrets
-config.js
+# Configuration with secrets - COMMENTED OUT FOR PRODUCTION DEPLOY
+# config.js
 
 # Node modules (if using build tools)
 node_modules/
